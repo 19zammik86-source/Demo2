@@ -7,26 +7,6 @@ hostnamectl set-hostname hq-srv.au-team.irpo
 # Настрока часового пояса
 timedatectl set-timezone Asia/Krasnoyarsk
 
-# Настраиваем интерфейс enp0s3 (статический IP)
-cat <<EOF > /etc/net/ifaces/enp0s3/options
-BOOTPROTO=static
-TYPE=eth
-CONFIG_WIRELESS=no
-SYSTEMD_BOOTPROTO=dhcp4
-CONFIG_IPV4=yes
-DISABLED=no
-NM_CONTROLLED=no
-SYSTEMD_CONTROLLED=no
-EOF
-
-cat <<EOF > /etc/net/ifaces/enp0s3/ipv4address
-192.168.1.2/27
-EOF
-
-cat <<EOF > /etc/net/ifaces/enp0s3/ipv4route
-default via 192.168.1.1
-EOF
-
 # Добавление адреса DNS-сервера
 cat <<EOF > /etc/resolv.conf
 search au-team.irpo
