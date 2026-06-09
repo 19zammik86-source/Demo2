@@ -104,9 +104,9 @@ modprobe 8021q
 sed -i "s/net.ipv4.ip_forward = 0/net.ipv4.ip_forward = 1/" "/etc/net/sysctl.conf"
 
 # Настройка iptables
-iptables -t nat -A POSTROUTING -o ens18 -j MASQUERADE
-iptables -t nat -A PREROUTING -i ens18 -p tcp --dport 8080 -j DNAT --to-destination 192.168.1.2:80
-iptables -t nat -A PREROUTING -i ens18 -p tcp --dport 2026 -j DNAT --to-destination 192.168.1.2:2026
+iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE
+iptables -t nat -A PREROUTING -i enp0s3 -p tcp --dport 8080 -j DNAT --to-destination 192.168.1.2:80
+iptables -t nat -A PREROUTING -i enp0s3 -p tcp --dport 2026 -j DNAT --to-destination 192.168.1.2:2026
 iptables-save > /etc/sysconfig/iptables
 
 # Добавляем IPTABLES в автозапуск
