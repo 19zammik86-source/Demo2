@@ -16,7 +16,7 @@ mkdir -p /etc/net/ifaces/gre1
 
 
 # Настраиваем интерфейс enp0s8 (статический IP)
-cat <<EOF > /etc/net/ifaces/ens19/options
+cat <<EOF > /etc/net/ifaces/enp0s8/options
 BOOTPROTO=static
 TYPE=eth
 CONFIG_WIRELESS=no
