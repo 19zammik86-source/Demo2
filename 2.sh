@@ -9,8 +9,6 @@ sed -i "s/\$dbname = \"db\";/\$dbname = \"webdb\";/" /var/www/html/index.php
 
 systemctl enable --now mariadb
 
------------------------------------------------------------------------------------------
-
 mariadb -u root <<EOF
 CREATE DATABASE IF NOT EXISTS webdb;
 CREATE USER IF NOT EXISTS 'web1'@'localhost' IDENTIFIED BY 'P@ssw0rd';
