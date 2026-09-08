@@ -3,7 +3,7 @@
 
 # Настройка hostname
 hostnamectl set-hostname isp.au-team.irpo
-apt-get update
+
 
 # Настрока часового пояса
 timedatectl set-timezone Asia/Krasnoyarsk
