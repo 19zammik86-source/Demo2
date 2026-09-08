@@ -3,6 +3,7 @@
 
 # Настройка hostname
 hostnamectl set-hostname isp.au-team.irpo
+apt-get update
 
 # Настрока часового пояса
 timedatectl set-timezone Asia/Krasnoyarsk
@@ -42,6 +43,8 @@ echo '172.16.2.1/28' > /etc/net/ifaces/enp0s3/ipv4address
 sed -i "s/net.ipv4.ip_forward = 0/net.ipv4.ip_forward = 1/" "/etc/net/sysctl.conf"
 
 # Настройка NAT
+ apt-get install iptables 
+ 
 iptables -t nat -A POSTROUTING -o enp0s1 -j MASQUERADE
 iptables-save > /etc/sysconfig/iptables
 
