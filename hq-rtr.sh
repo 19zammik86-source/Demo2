@@ -105,8 +105,8 @@ sed -i "s/net.ipv4.ip_forward = 0/net.ipv4.ip_forward = 1/" "/etc/net/sysctl.con
 
 # Настройка iptables
 iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE
-iptables -t nat -A PREROUTING -i enp0s3 -p tcp --dport 8080 -j DNAT --to-destination 192.168.1.2:80
-iptables -t nat -A PREROUTING -i enp0s3 -p tcp --dport 2026 -j DNAT --to-destination 192.168.1.2:2026
+iptables -t nat -A PREROUTING -i enp7s1 -p tcp --dport 8080 -j DNAT --to-destination 192.168.1.2:80
+iptables -t nat -A PREROUTING -i enp7s1 -p tcp --dport 2027 -j DNAT --to-destination 192.168.1.2:2027
 iptables-save > /etc/sysconfig/iptables
 
 # Добавляем IPTABLES в автозапуск
