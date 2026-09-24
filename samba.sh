@@ -30,7 +30,7 @@ systemctl enable --now samba
 
 systemctl restart samba
 
-cat > "/etc/net/ifaces/enp0s3/resolv.conf" <<EOF
+cat > "/etc/net/ifaces/enp7s1/resolv.conf" <<EOF
 search au-team.irpo
 nameserver 127.0.0.1
 EOF
